@@ -23,6 +23,7 @@
     
     UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
     RMContainerController *containerViewController = [[RMContainerController alloc] initWithChildViewController:viewController];
+    containerViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Toggle Bottom" style:UIBarButtonItemStylePlain target:self action:@selector(toggleBottomBar:)];
     
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:containerViewController];
     nvc.toolbarHidden = NO;
@@ -31,6 +32,13 @@
     [self.window makeKeyAndVisible];
 
     return YES;
+}
+
+- (void)toggleBottomBar:(id)sender
+{
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    BOOL toolbarHidden = navigationController.toolbarHidden;
+    [navigationController setToolbarHidden:!toolbarHidden animated:YES];
 }
 
 @end
