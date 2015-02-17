@@ -1,0 +1,6 @@
+
+iOS tableview bug to be aware of:
+http://stackoverflow.com/questions/19595479/calling-toplayoutguide-breaks-scrolling-altogether
+
+Important note for container viewcontrollers:
+- set automaticallyAdjustsScrollViewInsets to NO, this way NavigationControllers and TabbarControllers dont mess with our childviewcontroller scrollview insets
