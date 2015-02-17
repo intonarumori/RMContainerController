@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A547C80E1A9376CB00292A7A /* RMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A547C80D1A9376CB00292A7A /* RMTableViewController.m */; };
+		A547C8141A93874000292A7A /* RMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A547C8111A93874000292A7A /* RMTableView.m */; };
+		A547C8151A93874000292A7A /* RMView.m in Sources */ = {isa = PBXBuildFile; fileRef = A547C8131A93874000292A7A /* RMView.m */; };
 		A5D253661A92226500AECF4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D253651A92226500AECF4C /* main.m */; };
 		A5D253691A92226500AECF4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D253681A92226500AECF4C /* AppDelegate.m */; };
 		A5D2536C1A92226500AECF4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2536B1A92226500AECF4C /* ViewController.m */; };
@@ -17,6 +20,7 @@
 		A5D2538E1A9222AB00AECF4C /* UIViewController+RMLayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2538B1A9222AB00AECF4C /* UIViewController+RMLayoutAdditions.m */; };
 		A5D2538F1A9222AB00AECF4C /* NSLayoutConstraint+RMLayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2538D1A9222AB00AECF4C /* NSLayoutConstraint+RMLayoutAdditions.m */; };
 		A5D253921A9222B700AECF4C /* RMContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D253911A9222B700AECF4C /* RMContainerController.m */; };
+		A5D253981A922ADC00AECF4C /* RMTableContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D253971A922ADC00AECF4C /* RMTableContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A547C80C1A9376CB00292A7A /* RMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTableViewController.h; sourceTree = "<group>"; };
+		A547C80D1A9376CB00292A7A /* RMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTableViewController.m; sourceTree = "<group>"; };
+		A547C8101A93874000292A7A /* RMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTableView.h; sourceTree = "<group>"; };
+		A547C8111A93874000292A7A /* RMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTableView.m; sourceTree = "<group>"; };
+		A547C8121A93874000292A7A /* RMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMView.h; sourceTree = "<group>"; };
+		A547C8131A93874000292A7A /* RMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMView.m; sourceTree = "<group>"; };
 		A5D253601A92226500AECF4C /* RMContainerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMContainerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D253641A92226500AECF4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5D253651A92226500AECF4C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -49,6 +59,8 @@
 		A5D2538D1A9222AB00AECF4C /* NSLayoutConstraint+RMLayoutAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+RMLayoutAdditions.m"; sourceTree = "<group>"; };
 		A5D253901A9222B700AECF4C /* RMContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMContainerController.h; sourceTree = "<group>"; };
 		A5D253911A9222B700AECF4C /* RMContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMContainerController.m; sourceTree = "<group>"; };
+		A5D253961A922ADC00AECF4C /* RMTableContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTableContentViewController.h; sourceTree = "<group>"; };
+		A5D253971A922ADC00AECF4C /* RMTableContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTableContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +81,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A547C80F1A93874000292A7A /* DebugViews */ = {
+			isa = PBXGroup;
+			children = (
+				A547C8101A93874000292A7A /* RMTableView.h */,
+				A547C8111A93874000292A7A /* RMTableView.m */,
+				A547C8121A93874000292A7A /* RMView.h */,
+				A547C8131A93874000292A7A /* RMView.m */,
+			);
+			path = DebugViews;
+			sourceTree = "<group>";
+		};
 		A5D253571A92226500AECF4C = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +113,7 @@
 		A5D253621A92226500AECF4C /* RMContainerController */ = {
 			isa = PBXGroup;
 			children = (
+				A547C80F1A93874000292A7A /* DebugViews */,
 				A5D253891A92229F00AECF4C /* LayoutClasses */,
 				A5D253671A92226500AECF4C /* AppDelegate.h */,
 				A5D253681A92226500AECF4C /* AppDelegate.m */,
@@ -101,6 +125,10 @@
 				A5D253701A92226500AECF4C /* Images.xcassets */,
 				A5D253721A92226500AECF4C /* LaunchScreen.xib */,
 				A5D253631A92226500AECF4C /* Supporting Files */,
+				A5D253961A922ADC00AECF4C /* RMTableContentViewController.h */,
+				A5D253971A922ADC00AECF4C /* RMTableContentViewController.m */,
+				A547C80C1A9376CB00292A7A /* RMTableViewController.h */,
+				A547C80D1A9376CB00292A7A /* RMTableViewController.m */,
 			);
 			path = RMContainerController;
 			sourceTree = "<group>";
@@ -242,12 +270,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A547C8141A93874000292A7A /* RMTableView.m in Sources */,
+				A547C80E1A9376CB00292A7A /* RMTableViewController.m in Sources */,
 				A5D2536C1A92226500AECF4C /* ViewController.m in Sources */,
+				A547C8151A93874000292A7A /* RMView.m in Sources */,
 				A5D253691A92226500AECF4C /* AppDelegate.m in Sources */,
 				A5D253921A9222B700AECF4C /* RMContainerController.m in Sources */,
 				A5D253661A92226500AECF4C /* main.m in Sources */,
 				A5D2538F1A9222AB00AECF4C /* NSLayoutConstraint+RMLayoutAdditions.m in Sources */,
 				A5D2538E1A9222AB00AECF4C /* UIViewController+RMLayoutAdditions.m in Sources */,
+				A5D253981A922ADC00AECF4C /* RMTableContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +470,7 @@
 				A5D253851A92226500AECF4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5D253861A92226500AECF4C /* Build configuration list for PBXNativeTarget "RMContainerControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +479,7 @@
 				A5D253881A92226500AECF4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

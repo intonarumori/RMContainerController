@@ -9,6 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol RMCustomTopLayoutLengthProtocol <NSObject>
+
+- (CGFloat)topLayoutLength;
+
+@end
+
+@protocol RMCustomBottomLayoutLengthProtocol <NSObject>
+
+- (CGFloat)bottomLayoutLength;
+
+@end
+
+#pragma mark -
+
 @interface UIViewController (RMLayoutAdditions)
 
 - (NSArray *)removeTopLayoutConstraintsFromView:(UIView *)view;
@@ -18,5 +32,11 @@
 - (NSArray *)removeBottomLayoutConstraintsFromView:(UIView *)view;
 - (NSArray *)createBottomLayoutConstraintsWithItem:(id)item attribute:(NSLayoutAttribute)attribute;
 - (NSArray *)bottomLayoutConstraints;
+
+- (NSArray *)rm_defaultTopGuideConstraints;
+- (NSArray *)rm_defaultBottomGuideConstraints;
+
+- (CGFloat)accumulatedTopLayoutLength;
+- (CGFloat)accumulatedBottomLayoutLength;
 
 @end

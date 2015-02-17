@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "UIViewController+RMLayoutAdditions.h"
+
 @interface ViewController ()
 
 @end
@@ -21,7 +23,14 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+
+    //NSLayoutConstraint *constraint = [[self topLayoutConstraints] objectAtIndex:0];
+    //NSLog(@"constraint %@", constraint);
 }
 
 @end

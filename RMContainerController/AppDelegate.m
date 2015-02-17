@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import "RMContainerController.h"
+#import "RMTableContentViewController.h"
+#import "RMTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,24 +23,50 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
-    RMContainerController *containerViewController = [[RMContainerController alloc] initWithChildViewController:viewController];
-    containerViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Toggle Bottom" style:UIBarButtonItemStylePlain target:self action:@selector(toggleBottomBar:)];
-    
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:containerViewController];
-    nvc.toolbarHidden = NO;
-    self.window.rootViewController = nvc;
-    
+    self.window.rootViewController = [self setup3];
+
     [self.window makeKeyAndVisible];
 
     return YES;
 }
 
-- (void)toggleBottomBar:(id)sender
+- (UIViewController *)setup1
 {
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    BOOL toolbarHidden = navigationController.toolbarHidden;
-    [navigationController setToolbarHidden:!toolbarHidden animated:YES];
+    UIViewController *tableViewController = [RMTableViewController new];
+    
+    RMContainerController *containerViewController = [[RMContainerController alloc] initWithChildViewController:tableViewController];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:containerViewController];
+    nvc.toolbarHidden = NO;
+
+    return nvc;
+}
+
+- (UIViewController *)setup2
+{
+    UIViewController *tableViewController = [RMTableViewController new];
+
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:tableViewController];
+    nvc.toolbarHidden = NO;
+    
+    return nvc;
+}
+
+- (UIViewController *)setup3
+{
+    UIViewController *tableViewController = [RMTableViewController new];
+    RMContainerController *containerViewController1 = [[RMContainerController alloc] initWithChildViewController:tableViewController];
+    containerViewController1.title = @"1";
+    UINavigationController *nvc1 = [[UINavigationController alloc] initWithRootViewController:containerViewController1];
+
+    UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+    RMContainerController *containerViewController2 = [[RMContainerController alloc] initWithChildViewController:viewController];
+    containerViewController2.title = @"2";
+    UINavigationController *nvc2 = [[UINavigationController alloc] initWithRootViewController:containerViewController2];
+
+    UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    tabbarController.viewControllers = @[nvc1, nvc2];
+    
+    return tabbarController;
 }
 
 @end

@@ -9,6 +9,8 @@
 #import "UIViewController+RMLayoutAdditions.h"
 #import <objc/runtime.h>
 
+#import "NSLayoutConstraint+RMLayoutAdditions.h"
+
 static const char kUIViewRMLayoutAdditionsTopLayoutConstraint;
 static const char kUIViewRMLayoutAdditionsBottomLayoutConstraint;
 
@@ -16,8 +18,86 @@ static const char kUIViewRMLayoutAdditionsBottomLayoutConstraint;
 
 #pragma mark -
 
+- (CGFloat)accumulatedTopLayoutLength
+{
+    if([self conformsToProtocol:@protocol(RMCustomTopLayoutLengthProtocol)])
+    {
+        return [(id<RMCustomTopLayoutLengthProtocol>)self topLayoutLength];
+    }
+    else
+    {
+        NSArray *constraints = [self topLayoutConstraints];
+        
+        if(constraints.count > 0)
+        {
+            NSLayoutConstraint *topConstraint = [constraints firstObject];
+            
+            // TODO: we know it's the first since we set it up like that
+            // BTW: the layoutGuide is UIview too
+            UIView *v = (UIView *)topConstraint.secondItem;
+            
+            UIView *parent = [self rm_superviewNotWindow:v];
+
+            // TODO: is this correct?
+            CGRect rect = [v convertRect:v.bounds toView:parent];
+            return CGRectGetMaxY(rect);
+        }
+        else
+        {
+            return [self.topLayoutGuide length];
+        }
+    }
+}
+
+- (CGFloat)accumulatedBottomLayoutLength
+{
+    if([self conformsToProtocol:@protocol(RMCustomBottomLayoutLengthProtocol)])
+    {
+        return [(id<RMCustomBottomLayoutLengthProtocol>)self bottomLayoutLength];
+    }
+    else
+    {
+        NSArray *constraints = [self bottomLayoutConstraints];
+        
+        if(constraints.count > 0)
+        {
+            NSLayoutConstraint *topConstraint = [constraints firstObject];
+            
+            // TODO: we know it's the first since we set it up like that
+            // BTW: the layoutGuide is UIview too
+            UIView *v = (UIView *)topConstraint.secondItem;
+            
+            // find super view that is not the window
+            UIView *parent = [self rm_superviewNotWindow:v];
+
+            // TODO: is this correct?
+            CGRect rect = [v convertRect:v.bounds toView:parent];
+            CGRect viewRect = [self.view convertRect:self.view.bounds toView:parent];
+            CGFloat bottom = CGRectGetMaxY(viewRect) - rect.origin.y;
+
+            return bottom;
+        }
+        else
+        {
+            return [self.topLayoutGuide length];
+        }
+    }
+}
+
+- (UIView *)rm_superviewNotWindow:(UIView *)view
+{
+    UIView *parent = view.superview;
+    while (parent.superview && ![parent.superview isKindOfClass:[UIWindow class]]) {
+        parent = parent.superview;
+    }
+    return parent;
+}
+
 - (NSArray *)topLayoutConstraints
 {
+    // access it so it is created
+    id __unused layoutGuide = self.topLayoutGuide;
+    
     return objc_getAssociatedObject(self, &kUIViewRMLayoutAdditionsTopLayoutConstraint);
 }
 
@@ -61,6 +141,9 @@ static const char kUIViewRMLayoutAdditionsBottomLayoutConstraint;
 
 - (NSArray *)bottomLayoutConstraints
 {
+    // access it so it is created
+    id __unused layoutGuide = self.bottomLayoutGuide;
+
     return objc_getAssociatedObject(self, &kUIViewRMLayoutAdditionsBottomLayoutConstraint);
 }
 
